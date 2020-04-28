@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,5 +40,18 @@ WebElement element = driver.findElement(MobileBy.AndroidUIAutomator(
 return element;
 }
 
+public void rotateScreen(String orientation){
+	if(orientation.equalsIgnoreCase("LANDSCAPE")){
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+	}
+	else 
+		if(orientation.equalsIgnoreCase("PORTRAIT")){
+			driver.rotate(ScreenOrientation.PORTRAIT);
+		}
+}
+
+public void setScreenResolution(int base, int height){
+	driver.manage().window().setSize(new Dimension(base, height));
+}
 
 }
